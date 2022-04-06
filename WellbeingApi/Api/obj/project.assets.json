@@ -1954,32 +1954,34 @@
     ]
   },
   "packageFolders": {
-    "/home/ernesto/.nuget/packages/": {}
+    "C:\\Users\\lsust\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/Api.csproj",
+      "projectUniqueName": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/Api.csproj",
-      "packagesPath": "/home/ernesto/.nuget/packages/",
-      "outputPath": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/obj/",
+      "projectPath": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\lsust\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/ernesto/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\lsust\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Infrastructure/Infrastructure.csproj": {
-              "projectPath": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Infrastructure/Infrastructure.csproj"
+            "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -2035,7 +2037,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
