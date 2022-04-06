@@ -22,9 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Domain.Entities;
 using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Infrastructure.Persistence;
 
 namespace Infrastructure.Data
 {
@@ -48,7 +48,7 @@ namespace Infrastructure.Data
             return await _context.Activity
                     .Where(filter => filter.Id == id)
                     .AsNoTracking()
-                    .FirstOrDefault();
+                    .FirstAsync();
         }
 
         public async Task<Activity> Save(Activity activity)
@@ -69,11 +69,11 @@ namespace Infrastructure.Data
 
         public async Task<bool> DeleteById(int id)
         {
-            Activity? activity = _context.Activity.Where(filter => filter.Id == id);
+            Activity? activity = await _context.Activity.Where(filter => filter.Id == id).FirstOrDefaultAsync();
             
             if(activity is not null)
             {
-                await _context.Activity.RemoveAsync(activity);
+                _context.Activity.Remove(activity);
                 await _context.SaveChangesAsync();
 
                 return true;
