@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Domain/Domain.csproj": {}
+    "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Domain/Domain.csproj": {
+    "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Domain/Domain.csproj",
-        "packagesPath": "/home/ernesto/.nuget/packages/",
-        "outputPath": "/home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Domain/obj/",
+        "projectPath": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\lsust\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lsust\\source\\repos\\ernesto-sustaita\\WellbeingApi\\WellbeingApi\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/ernesto/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lsust\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
