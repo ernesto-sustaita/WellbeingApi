@@ -1,11 +1,15 @@
 ﻿using Domain.Entities;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
     public partial class ApplicationDbContext : DbContext
     {
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
         }
