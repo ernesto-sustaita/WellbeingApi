@@ -1,4 +1,4 @@
-﻿/*
+/*
 MIT License
 
 Copyright (c) 2022 Luis Ernesto Sustaita Loera
@@ -22,18 +22,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using Domain.Enums;
+using Domain.Entities;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces.Services;
 
-namespace Domain.Entities
+namespace Domain.Services
 {
-    public class Alert
+    public class AlertService : IAlertService
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public Enums.Type Type { get; set; }
-        public DateTime ExecutionTime { get; set; }
-        public DaysOfExecution DaysOfExecution { get; set; }
-        public string? Title { get; set; }
-        public string? Message { get; set; }
+        private readonly IAlertRepository _alertRepository;
+
+        public AlertService(IAlertRepository alertRepository)
+        {
+            _alertRepository = alertRepository;
+        }
+
+        public Task<bool> DeleteById(int id)
+        {
+            return _alertRepository.DeleteById(id);
+        }
+
+        public Task<IEnumerable<Alert>> GetAll()
+        {
+            return _alertRepository.GetAll();
+        }
+
+        public Task<Alert> GetById(int id)
+        {
+            return _alertRepository.GetById(id);
+        }
+
+        public Task<Alert> Save(Alert alert)
+        {
+            return _alertRepository.Save(alert);
+        }
+
+        public Task<Alert> Update(Alert Alert)
+        {
+            return _alertRepository.Update(Alert);
+        }
     }
 }

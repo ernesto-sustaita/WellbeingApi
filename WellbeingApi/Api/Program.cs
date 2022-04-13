@@ -18,6 +18,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IActivityRepository, ActivityRepository>();
 builder.Services.AddTransient<IActivityService, ActivityService>();
+builder.Services.AddTransient<IAlertRepository, AlertRepository>();
+builder.Services.AddTransient<IAlertService, AlertService>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     dbContextOptions => dbContextOptions
