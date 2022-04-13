@@ -66,3 +66,4 @@ C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\D
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.pdb
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.genruntimeconfig.cache
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\ref\Api.dll
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs

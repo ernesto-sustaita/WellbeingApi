@@ -22,18 +22,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using Domain.Enums;
+using Domain.Entities;
 
-namespace Domain.Entities
+namespace Domain.Interfaces.Repositories
 {
-    public class Alert
+    public interface IAlertRepository
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public Enums.Type Type { get; set; }
-        public DateTime ExecutionTime { get; set; }
-        public DaysOfExecution DaysOfExecution { get; set; }
-        public string? Title { get; set; }
-        public string? Message { get; set; }
+        Task<IEnumerable<Alert>> GetAll();
+
+        Task<Alert> GetById(int id);
+
+        Task<Alert> Save(Alert alert);
+
+        Task<Alert> Update(Alert alert);
+
+        Task<bool> DeleteById(int id);
     }
 }

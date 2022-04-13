@@ -55,21 +55,21 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async void Post([FromBody] Activity activity)
+        public async Task<Activity> Post([FromBody] Activity activity)
         {
-            await _activityService.Save(activity);
+            return await _activityService.Save(activity);
         }
 
         [HttpPut("{id}")]
-        public async void Put([FromBody] Activity activity)
+        public async Task<Activity> Put([FromBody] Activity activity)
         {
-            await _activityService.Update(activity);
+            return await _activityService.Update(activity);
         }
 
         [HttpDelete("{id}")]
-        public async void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            await _activityService.DeleteById(id);
+            return await _activityService.DeleteById(id);
         }
     }
 }
