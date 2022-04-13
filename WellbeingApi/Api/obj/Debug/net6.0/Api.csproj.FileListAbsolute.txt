@@ -8,12 +8,6 @@
 /home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/obj/Debug/net6.0/Api.dll
 /home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/obj/Debug/net6.0/refint/Api.dll
 /home/ernesto/Documentos/wellbeing/WellbeingApi/WellbeingApi/Api/obj/Debug/net6.0/Api.pdb
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.csproj.AssemblyReference.cache
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.AssemblyInfoInputs.cache
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.AssemblyInfo.cs
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.csproj.CoreCompileInputs.cache
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\appsettings.json
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\Api.exe
@@ -57,6 +51,13 @@ C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\D
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\Infrastructure.dll
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\Infrastructure.pdb
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\bin\Debug\net6.0\Domain.pdb
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.csproj.AssemblyReference.cache
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.AssemblyInfoInputs.cache
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.AssemblyInfo.cs
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.csproj.CoreCompileInputs.cache
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\scopedcss\bundle\Api.styles.css
@@ -66,4 +67,3 @@ C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\D
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.pdb
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.genruntimeconfig.cache
 C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\ref\Api.dll
-C:\Users\lsust\source\repos\ernesto-sustaita\WellbeingApi\WellbeingApi\Api\obj\Debug\net6.0\Api.MvcApplicationPartsAssemblyInfo.cs
