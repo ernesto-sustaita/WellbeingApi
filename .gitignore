@@ -1,0 +1,9 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/WellbeingApi/Api/obj/Release/net6.0
+/WellbeingApi/Domain/obj
+/WellbeingApi/Infrastructure/obj/Release/net6.0
+/WellbeingApi/.vs
+/WellbeingApi/v17
