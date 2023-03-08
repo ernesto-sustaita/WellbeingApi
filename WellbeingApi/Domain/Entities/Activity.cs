@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
+
 namespace Domain.Entities
 {
     public class Activity
@@ -31,5 +33,6 @@ namespace Domain.Entities
         public Enums.Type Type { get; set; }
         public DateTime CreatedDate { get; set; }
         public int Duration { get; set; }
+        public int? Distractions { get; set; }
     }
 }
