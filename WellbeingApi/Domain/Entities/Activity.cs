@@ -22,8 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System;
-
 namespace Domain.Entities
 {
     public class Activity
@@ -34,5 +32,8 @@ namespace Domain.Entities
         public DateTime CreatedDate { get; set; }
         public int Duration { get; set; }
         public int? Distractions { get; set; }
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public IEnumerable<FeedbackAnswer> FeedbackAnswer { get; set; }
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
     }
 }
