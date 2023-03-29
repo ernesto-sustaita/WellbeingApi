@@ -22,14 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Domain.Enums
+namespace Domain.Entities
 {
-    public enum Type
+    public class Question
     {
-        Pommodoro = 0b_0000_0001,
-        Meditation = 0b_0000_0010,
-        StandUp = 0b_0000_0100,
-        EyeStainBreak = 0b_0000_1000,
-        StandUpAndEyeStrainBreak = 0b_0001_0000
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public Enums.QuestionType Type { get; set; }
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public string Text { get; set; }
+        public IEnumerable<Answer> Answers { get; set; }
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public IEnumerable<QuestionOption>? QuestionOptions { get; set; }
     }
 }

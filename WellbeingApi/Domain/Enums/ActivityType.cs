@@ -22,16 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Domain.Entities
+namespace Domain.Enums
 {
-    public class Activity
+    public enum ActivityType
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public Enums.ActivityType Type { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public int? Duration { get; set; }
-        public int? Distractions { get; set; }
-        public Survey? Survey { get; set; }
+        Pommodoro = 0b_0000_0001,
+        Meditation = 0b_0000_0010,
+        StandUp = 0b_0000_0100,
+        EyeStainBreak = 0b_0000_1000,
+        StandUpAndEyeStrainBreak = 0b_0001_0000
     }
 }
