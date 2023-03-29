@@ -42,7 +42,9 @@ namespace Infrastructure
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Activity> Activity { get; set; }
         public virtual DbSet<Alert> Alert { get; set; }
-        public virtual DbSet<FeedbackQuestion> FeedbackQuestion {get; set;}
-        public virtual DbSet<FeedbackAnswer> FeedbackAnswer { get; set; }
+        public virtual DbSet<Survey> Survey { get; set; }
+        public virtual DbSet<Question> Question {get; set;}
+        public virtual DbSet<QuestionOption> QuestionOption { get; set; }
+        public virtual DbSet<Answer> Answer { get; set; }
     }
 }

@@ -24,14 +24,14 @@ SOFTWARE.
 
 namespace Domain.Entities
 {
-    public class Activity
+    public class Survey
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public Enums.ActivityType Type { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public int? Duration { get; set; }
-        public int? Distractions { get; set; }
-        public Survey? Survey { get; set; }
+        public int UserId { get; set; }
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public string Title { get; set; }
+        public IEnumerable<Question> FeedbackQuestions { get; set; }
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
     }
 }

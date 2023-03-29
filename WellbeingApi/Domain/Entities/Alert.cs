@@ -30,7 +30,7 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public Enums.Type Type { get; set; }
+        public Enums.ActivityType Type { get; set; }
         public DateTime ExecutionTime { get; set; }
         public DaysOfExecution DaysOfExecution { get; set; }
         public string? Title { get; set; }
