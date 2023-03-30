@@ -23,53 +23,43 @@ SOFTWARE.
 */
 
 using Domain.Entities;
+using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
-using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace Api.Controllers
+namespace Domain.Services
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AlertController : ControllerBase
+    public class SurveyService : ISurveyService
     {
-        private readonly IAlertService _alertService;
+        private readonly ISurveyRepository _surveyRepository;
 
-        public AlertController(IAlertService alertService)
+        public SurveyService(ISurveyRepository surveyRepository)
         {
-            _alertService = alertService;
+            _surveyRepository = surveyRepository;
         }
 
-
-        [HttpGet]
-        public async Task<IEnumerable<Alert>> Get()
+        public async Task<bool> DeleteByIdAsync(int id)
         {
-            return await _alertService.GetAllAsync();
+            return await _surveyRepository.DeleteById(id);
         }
 
-        [HttpGet("{id}")]
-        public async Task<Alert> Get(int id)
+        public async Task<IEnumerable<Survey>> GetAllAsync()
         {
-            return await _alertService.GetByIdAsync(id);
+            return await _surveyRepository.GetAll();
         }
 
-        [HttpPost]
-        public async Task<Alert> Post([FromBody] Alert alert)
+        public async Task<Survey> GetByIdAsync(int id)
         {
-            return await _alertService.SaveAsync(alert);
+            return await _surveyRepository.GetById(id);
         }
 
-        [HttpPut("{id}")]
-        public async Task<Alert> Put([FromBody] Alert alert)
+        public async Task<Survey> SaveAsync(Survey survey)
         {
-            return await _alertService.UpdateAsync(alert);
+            return await _surveyRepository.Save(survey);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<bool> Delete(int id)
+        public async Task<Survey> UpdateAsync(Survey survey)
         {
-            return await _alertService.DeleteByIdAsync(id);
+            return await _surveyRepository.Update(survey);
         }
     }
 }

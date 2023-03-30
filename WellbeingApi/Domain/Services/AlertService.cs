@@ -37,29 +37,29 @@ namespace Domain.Services
             _alertRepository = alertRepository;
         }
 
-        public Task<bool> DeleteById(int id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
-            return _alertRepository.DeleteById(id);
+            return await _alertRepository.DeleteByIdAsync(id);
         }
 
-        public Task<IEnumerable<Alert>> GetAll()
+        public async Task<IEnumerable<Alert>> GetAllAsync()
         {
-            return _alertRepository.GetAll();
+            return await _alertRepository.GetAllAsync();
         }
 
-        public Task<Alert> GetById(int id)
+        public async Task<Alert> GetByIdAsync(int id)
         {
-            return _alertRepository.GetById(id);
+            return await _alertRepository.GetByIdAsync(id);
         }
 
-        public Task<Alert> Save(Alert alert)
+        public async Task<Alert> SaveAsync(Alert alert)
         {
-            return _alertRepository.Save(alert);
+            return await _alertRepository.SaveAsync(alert);
         }
 
-        public Task<Alert> Update(Alert Alert)
+        public async Task<Alert> UpdateAsync(Alert Alert)
         {
-            return _alertRepository.Update(Alert);
+            return await _alertRepository.UpdateAsync(Alert);
         }
     }
 }

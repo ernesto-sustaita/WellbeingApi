@@ -45,13 +45,13 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<User>> Get()
         {
-            return await _userService.GetAll();
+            return await _userService.GetAllAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<User> Get(int id)
         {
-            return await _userService.GetById(id);
+            return await _userService.GetByIdAsync(id);
         }
 
         [HttpPost]
@@ -63,13 +63,13 @@ namespace Api.Controllers
         [HttpPut("{id}")]
         public async Task<User> Put([FromBody] User user)
         {
-            return await _userService.Update(user);
+            return await _userService.UpdateAsync(user);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {
-            return await _userService.DeleteById(id);
+            return await _userService.DeleteByIdAsync(id);
         }
     }
 }

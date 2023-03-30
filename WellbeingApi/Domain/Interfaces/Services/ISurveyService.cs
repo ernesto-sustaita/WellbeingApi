@@ -26,15 +26,15 @@ using Domain.Entities;
 
 namespace Domain.Interfaces.Services
 {
-    public interface IAlertService
+    public interface ISurveyService
     {
-        Task<IEnumerable<Alert>> GetAllAsync();
+        Task<IEnumerable<Survey>> GetAllAsync();
 
-        Task<Alert> GetByIdAsync(int id);
+        Task<Survey> GetByIdAsync(int id);
 
-        Task<Alert> SaveAsync(Alert alert);
+        Task<Survey> SaveAsync(Survey activity);
 
-        Task<Alert> UpdateAsync(Alert alert);
+        Task<Survey> UpdateAsync(Survey activity);
 
         Task<bool> DeleteByIdAsync(int id);
     }

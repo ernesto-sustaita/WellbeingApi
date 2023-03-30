@@ -3,6 +3,7 @@ using System;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230326165302_FeedbackTables")]
+    partial class FeedbackTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,10 +33,7 @@ namespace Infrastructure.Migrations
                     b.Property<int?>("Distractions")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Duration")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SurveyId")
+                    b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
@@ -44,8 +43,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SurveyId");
 
                     b.ToTable("Activity");
                 });
@@ -79,110 +76,61 @@ namespace Infrastructure.Migrations
                     b.ToTable("Alert");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Answer", b =>
+            modelBuilder.Entity("Domain.Entities.FeedbackAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("ActitivyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("AnswerType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
+                    b.Property<int>("FeedbackQuestionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionId");
+                    b.HasIndex("ActivityId");
 
-                    b.ToTable("Answer");
+                    b.HasIndex("FeedbackQuestionId");
+
+                    b.ToTable("FeedbackAnswer");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Question", b =>
+            modelBuilder.Entity("Domain.Entities.FeedbackQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int?>("SurveyId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
+                    b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SurveyId");
-
-                    b.ToTable("Question");
-                });
-
-            modelBuilder.Entity("Domain.Entities.QuestionOption", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
+                    b.Property<string>("Question")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("QuestionOption");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Survey", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Survey");
+                    b.ToTable("FeedbackQuestion");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>
@@ -202,50 +150,28 @@ namespace Infrastructure.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("Domain.Entities.FeedbackAnswer", b =>
+                {
+                    b.HasOne("Domain.Entities.Activity", "Activity")
+                        .WithMany("FeedbackAnswer")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.FeedbackQuestion", "FeedbackQuestion")
+                        .WithMany()
+                        .HasForeignKey("FeedbackQuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("FeedbackQuestion");
+                });
+
             modelBuilder.Entity("Domain.Entities.Activity", b =>
                 {
-                    b.HasOne("Domain.Entities.Survey", "Survey")
-                        .WithMany()
-                        .HasForeignKey("SurveyId");
-
-                    b.Navigation("Survey");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Answer", b =>
-                {
-                    b.HasOne("Domain.Entities.Question", null)
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Question", b =>
-                {
-                    b.HasOne("Domain.Entities.Survey", null)
-                        .WithMany("FeedbackQuestions")
-                        .HasForeignKey("SurveyId");
-                });
-
-            modelBuilder.Entity("Domain.Entities.QuestionOption", b =>
-                {
-                    b.HasOne("Domain.Entities.Question", null)
-                        .WithMany("QuestionOptions")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Question", b =>
-                {
-                    b.Navigation("Answers");
-
-                    b.Navigation("QuestionOptions");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Survey", b =>
-                {
-                    b.Navigation("FeedbackQuestions");
+                    b.Navigation("FeedbackAnswer");
                 });
 #pragma warning restore 612, 618
         }

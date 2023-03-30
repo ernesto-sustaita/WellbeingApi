@@ -36,14 +36,14 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<IEnumerable<Activity>> GetAll()
+        public async Task<IEnumerable<Activity>> GetAllAsync()
         {
             return await _context.Activity
                     .AsNoTracking()
                     .ToListAsync();
         }
 
-        public async Task<Activity> GetById(int id)
+        public async Task<Activity> GetByIdAsync(int id)
         {
             return await _context.Activity
                     .Where(filter => filter.Id == id)
@@ -51,7 +51,7 @@ namespace Infrastructure.Data
                     .FirstAsync();
         }
 
-        public async Task<Activity> Save(Activity activity)
+        public async Task<Activity> SaveAsync(Activity activity)
         {
             await _context.Activity.AddAsync(activity);
             await _context.SaveChangesAsync();
@@ -59,7 +59,7 @@ namespace Infrastructure.Data
             return activity;
         }
 
-        public async Task<Activity> Update(Activity activity)
+        public async Task<Activity> UpdateAsync(Activity activity)
         {
             _context.Activity.Update(activity);
             await _context.SaveChangesAsync();
@@ -67,7 +67,7 @@ namespace Infrastructure.Data
             return activity;
         }
 
-        public async Task<bool> DeleteById(int id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
             Activity? activity = await _context.Activity.Where(filter => filter.Id == id).FirstOrDefaultAsync();
             

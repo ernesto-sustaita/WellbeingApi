@@ -45,31 +45,31 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Activity>> Get()
         {
-            return await _activityService.GetAll();
+            return await _activityService.GetAllAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<Activity> Get(int id)
         {
-            return await _activityService.GetById(id);
+            return await _activityService.GetByIdAsync(id);
         }
 
         [HttpPost]
         public async Task<Activity> Post([FromBody] Activity activity)
         {
-            return await _activityService.Save(activity);
+            return await _activityService.SaveAsync(activity);
         }
 
         [HttpPut("{id}")]
         public async Task<Activity> Put([FromBody] Activity activity)
         {
-            return await _activityService.Update(activity);
+            return await _activityService.UpdateAsync(activity);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {
-            return await _activityService.DeleteById(id);
+            return await _activityService.DeleteByIdAsync(id);
         }
     }
 }

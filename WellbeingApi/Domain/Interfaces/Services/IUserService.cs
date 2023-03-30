@@ -28,14 +28,14 @@ namespace Domain.Interfaces.Services
 {
     public interface IUserService
     {
-        Task<IEnumerable<User>> GetAll();
+        Task<IEnumerable<User>> GetAllAsync();
 
-        Task<User> GetById(int id);
+        Task<User> GetByIdAsync(int id);
 
         Task<User> Save(User user);
 
-        Task<User> Update(User user);
+        Task<User> UpdateAsync(User user);
 
-        Task<bool> DeleteById(int id);
+        Task<bool> DeleteByIdAsync(int id);
     }
 }
