@@ -1,7 +1,7 @@
-/*
+﻿/*
 MIT License
 
-Copyright (c) 2022 Luis Ernesto Sustaita Loera
+Copyright (c) 2023 Luis Ernesto Sustaita Loera
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,64 +23,63 @@ SOFTWARE.
 */
 
 using Domain.Entities;
-using Domain.Interfaces.Repositories;
-using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace Infrastructure.Data
 {
-    public class AlertRepository : IAlertRepository
+    public class SurveyRepository
     {
         private readonly ApplicationDbContext _context;
-        public AlertRepository(ApplicationDbContext context)
+        public SurveyRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Alert>> GetAllAsync()
+        public async Task<IEnumerable<Survey>> GetAllAsync()
         {
-            return await _context.Alert
+            return await _context.Survey
                     .AsNoTracking()
                     .ToListAsync();
         }
 
-        public async Task<Alert> GetByIdAsync(int id)
+        public async Task<Survey> GetByIdAsync(int id)
         {
-            return await _context.Alert
+            return await _context.Survey
                     .Where(filter => filter.Id == id)
                     .AsNoTracking()
                     .FirstAsync();
         }
 
-        public async Task<Alert> SaveAsync(Alert alert)
+        public async Task<Survey> SaveAsync(Survey activity)
         {
-            await _context.Alert.AddAsync(alert);
+            await _context.Survey.AddAsync(activity);
             await _context.SaveChangesAsync();
 
-            return alert;
+            return activity;
         }
 
-        public async Task<Alert> UpdateAsync(Alert alert)
+        public async Task<Survey> UpdateAsync(Survey activity)
         {
-            _context.Alert.Update(alert);
+            _context.Survey.Update(activity);
             await _context.SaveChangesAsync();
 
-            return alert;
+            return activity;
         }
 
         public async Task<bool> DeleteByIdAsync(int id)
         {
-            Alert? Alert = await _context.Alert.Where(filter => filter.Id == id).FirstOrDefaultAsync();
-            
-            if(Alert is not null)
+            Survey? survey = await _context.Survey.Where(filter => filter.Id == id).FirstOrDefaultAsync();
+
+            if (survey is not null)
             {
-                _context.Alert.Remove(Alert);
+                _context.Survey.Remove(survey);
                 await _context.SaveChangesAsync();
 
                 return true;
             }
             else
                 return false;
-            
+
         }
     }
 }

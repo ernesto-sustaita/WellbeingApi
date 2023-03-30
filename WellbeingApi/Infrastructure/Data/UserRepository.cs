@@ -36,14 +36,14 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<IEnumerable<User>> GetAll()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _context.User
                     .AsNoTracking()
                     .ToListAsync();
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
             return await _context.User
                     .Where(filter => filter.Id == id)
@@ -59,7 +59,7 @@ namespace Infrastructure.Data
             return user;
         }
 
-        public async Task<User> Update(User user)
+        public async Task<User> UpdateAsync(User user)
         {
             _context.User.Update(user);
             await _context.SaveChangesAsync();
@@ -67,7 +67,7 @@ namespace Infrastructure.Data
             return user;
         }
 
-        public async Task<bool> DeleteById(int id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
             User? user = await _context.User.Where(filter => filter.Id == id).FirstOrDefaultAsync();
             

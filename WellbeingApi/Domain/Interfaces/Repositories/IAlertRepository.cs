@@ -28,14 +28,14 @@ namespace Domain.Interfaces.Repositories
 {
     public interface IAlertRepository
     {
-        Task<IEnumerable<Alert>> GetAll();
+        Task<IEnumerable<Alert>> GetAllAsync();
 
-        Task<Alert> GetById(int id);
+        Task<Alert> GetByIdAsync(int id);
 
-        Task<Alert> Save(Alert alert);
+        Task<Alert> SaveAsync(Alert alert);
 
-        Task<Alert> Update(Alert alert);
+        Task<Alert> UpdateAsync(Alert alert);
 
-        Task<bool> DeleteById(int id);
+        Task<bool> DeleteByIdAsync(int id);
     }
 }

@@ -37,29 +37,29 @@ namespace Domain.Services
             _activityRepository = activityRepository;
         }
 
-        public Task<bool> DeleteById(int id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
-            return _activityRepository.DeleteById(id);
+            return await _activityRepository.DeleteByIdAsync(id);
         }
 
-        public Task<IEnumerable<Activity>> GetAll()
+        public async Task<IEnumerable<Activity>> GetAllAsync()
         {
-            return _activityRepository.GetAll();
+            return await _activityRepository.GetAllAsync();
         }
 
-        public Task<Activity> GetById(int id)
+        public async Task<Activity> GetByIdAsync(int id)
         {
-            return _activityRepository.GetById(id);
+            return await _activityRepository.GetByIdAsync(id);
         }
 
-        public Task<Activity> Save(Activity activity)
+        public async Task<Activity> SaveAsync(Activity activity)
         {
-            return _activityRepository.Save(activity);
+            return await _activityRepository.SaveAsync(activity);
         }
 
-        public Task<Activity> Update(Activity activity)
+        public async Task<Activity> UpdateAsync(Activity activity)
         {
-            return _activityRepository.Update(activity);
+            return await _activityRepository.UpdateAsync(activity);
         }
     }
 }

@@ -28,14 +28,14 @@ namespace Domain.Interfaces.Repositories
 {
     public interface IActivityRepository
     {
-        Task<IEnumerable<Activity>> GetAll();
+        Task<IEnumerable<Activity>> GetAllAsync();
 
-        Task<Activity> GetById(int id);
+        Task<Activity> GetByIdAsync(int id);
 
-        Task<Activity> Save(Activity activity);
+        Task<Activity> SaveAsync(Activity activity);
 
-        Task<Activity> Update(Activity activity);
+        Task<Activity> UpdateAsync(Activity activity);
 
-        Task<bool> DeleteById(int id);
+        Task<bool> DeleteByIdAsync(int id);
     }
 }

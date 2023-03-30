@@ -26,50 +26,47 @@ using Domain.Entities;
 using Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlertController : ControllerBase
+    public class SurveyController : ControllerBase
     {
-        private readonly IAlertService _alertService;
+        private readonly ISurveyService _surveyService;
 
-        public AlertController(IAlertService alertService)
+        public SurveyController(ISurveyService surveyService)
         {
-            _alertService = alertService;
+            _surveyService = surveyService;
         }
 
-
         [HttpGet]
-        public async Task<IEnumerable<Alert>> Get()
+        public async Task<IEnumerable<Survey>> Get()
         {
-            return await _alertService.GetAllAsync();
+            return await _surveyService.GetAllAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<Alert> Get(int id)
+        public async Task<Survey> Get(int id)
         {
-            return await _alertService.GetByIdAsync(id);
+            return await _surveyService.GetByIdAsync(id);
         }
 
         [HttpPost]
-        public async Task<Alert> Post([FromBody] Alert alert)
+        public async Task<Survey> Post([FromBody] Survey survey)
         {
-            return await _alertService.SaveAsync(alert);
+            return await _surveyService.SaveAsync(survey);
         }
 
         [HttpPut("{id}")]
-        public async Task<Alert> Put([FromBody] Alert alert)
+        public async Task<Survey> Put([FromBody] Survey survey)
         {
-            return await _alertService.UpdateAsync(alert);
+            return await _surveyService.UpdateAsync(survey);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {
-            return await _alertService.DeleteByIdAsync(id);
+            return await _surveyService.DeleteByIdAsync(id);
         }
     }
 }
