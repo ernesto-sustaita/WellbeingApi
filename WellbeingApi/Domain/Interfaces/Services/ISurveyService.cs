@@ -32,9 +32,9 @@ namespace Domain.Interfaces.Services
 
         Task<Survey> GetByIdAsync(int id);
 
-        Task<Survey> SaveAsync(Survey activity);
+        Task<Survey> SaveAsync(Survey survey);
 
-        Task<Survey> UpdateAsync(Survey activity);
+        Task<Survey> UpdateAsync(Survey survey);
 
         Task<bool> DeleteByIdAsync(int id);
     }

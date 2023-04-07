@@ -28,52 +28,52 @@ using System.Data.Entity;
 
 namespace Infrastructure.Data
 {
-    public class SurveyRepository : ISurveyRepository
+    public class QuestionRepository : IQuestionRepository
     {
         private readonly ApplicationDbContext _context;
-        public SurveyRepository(ApplicationDbContext context)
+        public QuestionRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Survey>> GetAllAsync()
+        public async Task<IEnumerable<Question>> GetAllAsync()
         {
-            return await _context.Survey
+            return await _context.Question
                     .AsNoTracking()
                     .ToListAsync();
         }
 
-        public async Task<Survey> GetByIdAsync(int id)
+        public async Task<Question> GetByIdAsync(int id)
         {
-            return await _context.Survey
+            return await _context.Question
                     .Where(filter => filter.Id == id)
                     .AsNoTracking()
                     .FirstAsync();
         }
 
-        public async Task<Survey> SaveAsync(Survey survey)
+        public async Task<Question> SaveAsync(Question question)
         {
-            await _context.Survey.AddAsync(survey);
+            await _context.Question.AddAsync(question);
             await _context.SaveChangesAsync();
 
-            return survey;
+            return question;
         }
 
-        public async Task<Survey> UpdateAsync(Survey survey)
+        public async Task<Question> UpdateAsync(Question question)
         {
-            _context.Survey.Update(survey);
+            _context.Question.Update(question);
             await _context.SaveChangesAsync();
 
-            return survey;
+            return question;
         }
 
         public async Task<bool> DeleteByIdAsync(int id)
         {
-            Survey? survey = await _context.Survey.Where(filter => filter.Id == id).FirstOrDefaultAsync();
+            Question? question = await _context.Question.Where(filter => filter.Id == id).FirstOrDefaultAsync();
 
-            if (survey is not null)
+            if (question is not null)
             {
-                _context.Survey.Remove(survey);
+                _context.Question.Remove(question);
                 await _context.SaveChangesAsync();
 
                 return true;

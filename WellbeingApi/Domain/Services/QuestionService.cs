@@ -23,15 +23,41 @@ SOFTWARE.
 */
 
 using Domain.Entities;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces.Services;
 
-namespace Domain.Interfaces.Repositories
+namespace Domain.Services
 {
-    public interface ISurveyRepository
+    public class QuestionService : IQuestionService
     {
-        Task<IEnumerable<Survey>> GetAllAsync();
-        Task<Survey> GetByIdAsync(int id);
-        Task<Survey> SaveAsync(Survey survey);
-        Task<Survey> UpdateAsync(Survey survey);
-        Task<bool> DeleteByIdAsync(int id);
+        private readonly IQuestionRepository _questionRepository;
+        public QuestionService(IQuestionRepository questionRepository)
+        {
+            _questionRepository = questionRepository;
+        }
+        public async Task<bool> DeleteByIdAsync(int id)
+        {
+            return await _questionRepository.DeleteByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Question>> GetAllAsync()
+        {
+            return await _questionRepository.GetAllAsync();
+        }
+
+        public async Task<Question> GetByIdAsync(int id)
+        {
+            return await _questionRepository.GetByIdAsync(id);
+        }
+
+        public async Task<Question> SaveAsync(Question question)
+        {
+            return await _questionRepository.SaveAsync(question);
+        }
+
+        public async Task<Question> UpdateAsync(Question question)
+        {
+            return await _questionRepository.UpdateAsync(question);
+        }
     }
 }
