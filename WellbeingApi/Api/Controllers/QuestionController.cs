@@ -23,43 +23,52 @@ SOFTWARE.
 */
 
 using Domain.Entities;
-using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Domain.Services
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Api.Controllers
 {
-    public class SurveyService : ISurveyService
+    [Route("api/[controller]")]
+    [ApiController]
+    public class QuestionController : ControllerBase
     {
-        private readonly ISurveyRepository _surveyRepository;
+        private readonly IQuestionService _questionService;
 
-        public SurveyService(ISurveyRepository surveyRepository)
+        public QuestionController(IQuestionService questionService)
         {
-            _surveyRepository = surveyRepository;
+            _questionService = questionService;
         }
 
-        public async Task<bool> DeleteByIdAsync(int id)
+        [HttpGet]
+        public async Task<IEnumerable<Question>> Get()
         {
-            return await _surveyRepository.DeleteByIdAsync(id);
+            return await _questionService.GetAllAsync();
         }
 
-        public async Task<IEnumerable<Survey>> GetAllAsync()
+        [HttpGet("{id}")]
+        public async Task<Question> Get(int id)
         {
-            return await _surveyRepository.GetAllAsync();
+            return await _questionService.GetByIdAsync(id);
         }
 
-        public async Task<Survey> GetByIdAsync(int id)
+        [HttpPost]
+        public async Task<Question> Post([FromBody] Question question)
         {
-            return await _surveyRepository.GetByIdAsync(id);
+            return await _questionService.SaveAsync(question);
         }
 
-        public async Task<Survey> SaveAsync(Survey survey)
+        [HttpPut("{id}")]
+        public async Task<Question> Put([FromBody] Question question)
         {
-            return await _surveyRepository.SaveAsync(survey);
+            return await _questionService.UpdateAsync(question);
         }
 
-        public async Task<Survey> UpdateAsync(Survey survey)
+        [HttpDelete("{id}")]
+        public async Task<bool> Delete(int id)
         {
-            return await _surveyRepository.UpdateAsync(survey);
+            return await _questionService.DeleteByIdAsync(id);
         }
     }
 }

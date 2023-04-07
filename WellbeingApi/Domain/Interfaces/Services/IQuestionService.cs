@@ -24,14 +24,18 @@ SOFTWARE.
 
 using Domain.Entities;
 
-namespace Domain.Interfaces.Repositories
+namespace Domain.Interfaces.Services
 {
-    public interface ISurveyRepository
+    public interface IQuestionService
     {
-        Task<IEnumerable<Survey>> GetAllAsync();
-        Task<Survey> GetByIdAsync(int id);
-        Task<Survey> SaveAsync(Survey survey);
-        Task<Survey> UpdateAsync(Survey survey);
+        Task<IEnumerable<Question>> GetAllAsync();
+
+        Task<Question> GetByIdAsync(int id);
+
+        Task<Question> SaveAsync(Question question);
+
+        Task<Question> UpdateAsync(Question question);
+
         Task<bool> DeleteByIdAsync(int id);
     }
 }
