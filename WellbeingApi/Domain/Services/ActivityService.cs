@@ -47,6 +47,11 @@ namespace Domain.Services
             return await _activityRepository.GetAllAsync();
         }
 
+        public async Task<IEnumerable<Activity>> GetByDateAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _activityRepository.GetByDateAsync(startDate, endDate);
+        }
+
         public async Task<Activity> GetByIdAsync(int id)
         {
             return await _activityRepository.GetByIdAsync(id);

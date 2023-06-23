@@ -30,6 +30,8 @@ namespace Domain.Interfaces.Repositories
     {
         Task<IEnumerable<Activity>> GetAllAsync();
 
+        Task<IEnumerable<Activity>> GetByDateAsync(DateTime startDate, DateTime endDate);
+
         Task<Activity> GetByIdAsync(int id);
 
         Task<Activity> SaveAsync(Activity activity);

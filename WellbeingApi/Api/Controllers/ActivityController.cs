@@ -48,6 +48,12 @@ namespace Api.Controllers
             return await _activityService.GetAllAsync();
         }
 
+        [HttpGet("{startDate}/{endDate}")]
+        public async Task<IEnumerable<Activity>> Get(DateTime startDate, DateTime endDate)
+        {
+            return await _activityService.GetByDateAsync(startDate,endDate);
+        }
+
         [HttpGet("{id}")]
         public async Task<Activity> Get(int id)
         {

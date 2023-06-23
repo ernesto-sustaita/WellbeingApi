@@ -43,6 +43,14 @@ namespace Infrastructure.Data
                     .ToListAsync();
         }
 
+        public async Task<IEnumerable<Activity>> GetByDateAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _context.Activity
+                    .Where(filter => filter.CreatedDate >= startDate && filter.CreatedDate <= endDate)
+                    .AsNoTracking()
+                    .ToListAsync();
+        }
+
         public async Task<Activity> GetByIdAsync(int id)
         {
             return await _context.Activity
