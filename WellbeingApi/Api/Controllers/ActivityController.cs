@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Domain.Dto;
 using Domain.Entities;
 using Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -52,6 +53,12 @@ namespace Api.Controllers
         public async Task<IEnumerable<Activity>> Get(DateTime startDate, DateTime endDate)
         {
             return await _activityService.GetByDateAsync(startDate,endDate);
+        }
+
+        [HttpGet("meditation/time/{startDate}/{endDate}")]
+        public async Task<IEnumerable<DailyMeditationTime>> GetDailyMeditationTimeByDateIntervalAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _activityService.GetDailyMeditationTimeByDateIntervalAsync(startDate, endDate);
         }
 
         [HttpGet("{id}")]

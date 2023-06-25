@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Domain.Dto;
 using Domain.Entities;
 using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,16 @@ namespace Infrastructure.Data
         {
             return await _context.Activity
                     .Where(filter => filter.CreatedDate >= startDate && filter.CreatedDate <= endDate)
+                    .AsNoTracking()
+                    .ToListAsync();
+        }
+
+        public async Task<IEnumerable<DailyMeditationTime>> GetDailyMeditationTimeByDateIntervalAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _context.Activity
+                    .Where(filter => filter.CreatedDate >= startDate && filter.CreatedDate <= endDate)
+                    .GroupBy(group => group.CreatedDate.Date)
+                    .Select(fields => new DailyMeditationTime { Date = fields.Key.Date, TotalTime = fields.Sum(m => m.Duration) })
                     .AsNoTracking()
                     .ToListAsync();
         }

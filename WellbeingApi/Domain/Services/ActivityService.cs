@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Domain.Dto;
 using Domain.Entities;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
@@ -50,6 +51,11 @@ namespace Domain.Services
         public async Task<IEnumerable<Activity>> GetByDateAsync(DateTime startDate, DateTime endDate)
         {
             return await _activityRepository.GetByDateAsync(startDate, endDate);
+        }
+
+        public async Task<IEnumerable<DailyMeditationTime>> GetDailyMeditationTimeByDateIntervalAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _activityRepository.GetDailyMeditationTimeByDateIntervalAsync(startDate, endDate);
         }
 
         public async Task<Activity> GetByIdAsync(int id)
